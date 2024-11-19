@@ -13,4 +13,6 @@ public class CreateOrderDto {
     private String nameProduct;
     private BigDecimal price;
     private Integer quantity;
+    private boolean payment;
+    private boolean shipping;
 }

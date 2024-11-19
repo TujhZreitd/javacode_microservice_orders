@@ -24,13 +24,13 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<Object> createOrder(@RequestBody CreateOrderDto createOrderDto) {
-        String productId = null;
+        String result = null;
         try {
-            productId = orderService.createOrder(createOrderDto);
+            result = orderService.createOrder(createOrderDto);
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorMessage(new Date(), e.getMessage()));
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(productId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 }
